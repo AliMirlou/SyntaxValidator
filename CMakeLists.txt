@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.9)
 project(SyntaxValidator)
 
-set(CMAKE_CXX_STANDARD 17)
-SET(GCC_COVERAGE_COMPILE_FLAGS "-O3 -Wall")
-SET(CMAKE_CXX_FLAGS  "${GCC_COVERAGE_COMPILE_FLAGS}")
+set(CMAKE_CXX_STANDARD 11)
+set(GCC_COVERAGE_COMPILE_FLAGS "-O3 -Wall")
+set(CMAKE_CXX_FLAGS  "${GCC_COVERAGE_COMPILE_FLAGS}")
 
 add_executable(SyntaxValidator
         string_utils.h
