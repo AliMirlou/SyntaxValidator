@@ -1,0 +1,72 @@
+Program > Decl_List
+Decl_List > Declaration Decl_List | lambda
+Declaration > Var_Decl ; | Func_Definition
+
+
+Func_Definition > def id ( Args
+Args > Type Separator | ) : Type Block
+Separator > , Just_Define | Assignment_Stmt Just_Decl
+
+Just_Define > Types ) : Type ;
+Types > Type , Types | lambda
+
+Just_Decl > Params ) : Type Block
+Params > Param Params_Comma | lambda 
+Params_Comma > , Param Params_Comma | lambda  
+Param > Type Assignment_Stmt
+
+
+Block > { Block_Body_List Return }
+Block_Body_List > Block_Body Block_Body_List | lambda
+Block_Body > Var_Decl ; | Stmt
+Return > return Return_Arg ; | lambda
+Return_Arg > Expression | lambda
+
+
+Var_Decl > Type Assignment_Stmt Var_Decl_Comma
+Var_Decl_Comma > , Assignment_Stmt Var_Decl_Comma | lambda
+
+
+Stmt > Assignment_Stmt ; | Iteration_Stmt | Selection_Stmt 
+
+Selection_Stmt > if ( Expression ) Block Else_If
+Else_If > else Block | lambda
+
+Iteration_Stmt > For_Stmt | While_Stmt | Do_While_Stmt 
+
+While_Stmt > while ( Expression ) Block
+
+Do_While_Stmt > do Block while ( Expression ) ;
+
+For_Stmt > for ( For_Init ; Expression ; For_Operation ) Block
+For_Init > Assignment_Stmt | Var_Decl | lambda
+For_Operation > Assignment_Stmt | lambda
+
+Expression > Expression_Operand Expression_List
+Expression_List > Operator Expression_Operand Expression_List | lambda
+Expression_Operand > ( Expression ) | Operand
+
+
+Assignment_Stmt > id Assign
+Assign > = Expression | ++ | -- | lambda
+
+
+Type > int | void | bool | double | char 
+Constant > int | double | char | bool
+
+Operator > Arith_Op | Rel_Op | Logic_Op
+Operand > Number | id External
+External > ( ParamsP ) | lambda
+
+Number > int_number | double_number | ' id '
+
+Logic_Op > or | and
+
+Rel_Op > == | != | < | <= | > | >=
+
+Arith_Op > * | / | + | - | % | ^
+
+
+ParamsP > ParamP Params_CommaP | lambda 
+Params_CommaP > , ParamP Params_CommaP | lambda  
+ParamP > Operand

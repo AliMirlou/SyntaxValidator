@@ -1,0 +1,23 @@
+def main(int a): void {
+	int a = a + b;
+	if (k+23) { 
+		a = a*b+32^4;
+		if (k == b) {
+			k = k * ali(a);
+			a++;
+		}
+	}
+	else {
+		for (int i = 0; i < 10; i++) {
+			a = a * b + 234;
+		}/**asdfoi**/
+		a = 'a';
+		a = 23.43;
+	}
+}
+
+def esm() : int
+{
+int a;
+return ;
+}
